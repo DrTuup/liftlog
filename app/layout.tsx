@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "Liftlog",
@@ -27,11 +28,15 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <main>
-              <ThemeToggle />
-              <SidebarTrigger className="m-2" />
-              {children}
-            </main>
+            <div className="w-full">
+              <div className="flex flex-row items-center">
+                <SidebarTrigger className="m-2" />
+                <ThemeToggle />
+              </div>
+              <Separator />
+
+              <div className="m-3">{children}</div>
+            </div>
           </ThemeProvider>
         </SidebarProvider>
       </body>
